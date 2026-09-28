@@ -99,7 +99,7 @@ export const HeroSection: React.FC = () => {
               </a>
 
               <a
-                href="https://github.com"
+                href="https://github.com/ESOTERICS-IO07/AESAR"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 rounded-md transition-all shadow-2xs"

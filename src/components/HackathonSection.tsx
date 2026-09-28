@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { Award, Users, Camera, Cpu, Terminal, Sparkles, Image as ImageIcon, ExternalLink } from 'lucide-react';
 import { TeamMember } from '../types';
 
+import rover1 from '../public/images/Rover 1.jpeg';
+import rover2 from '../public/images/Rover 2.jpeg';
+import rover3 from '../public/images/Rover 3.jpeg';
+import team1 from '../public/images/Team 1.jpeg';
+import team2 from '../public/images/Team 2.jpeg';
+
 export const HackathonSection: React.FC = () => {
   const [activeGalleryTab, setActiveGalleryTab] = useState<'all' | 'rover' | 'team' | 'hardware' | 'dashboard' | 'demo'>('all');
 
@@ -40,6 +46,7 @@ export const HackathonSection: React.FC = () => {
       desc: 'All-terrain 4-wheel chassis with dual-deck acrylic mounting plates, BTS7960 drivers, and forward sensor mast.',
       tag: 'PHYSICAL HARDWARE',
       badge: 'PROTOTYPE V1',
+      img: rover1,
     },
     {
       id: 'gal-2',
@@ -48,6 +55,7 @@ export const HackathonSection: React.FC = () => {
       desc: 'Late-night hardware wiring, UART oscilloscope debugging, and chassis calibration during the 48-hour hackathon.',
       tag: 'HACKATHON LAB',
       badge: 'SCOPE RESIDENCY',
+      img: team1,
     },
     {
       id: 'gal-3',
@@ -56,6 +64,7 @@ export const HackathonSection: React.FC = () => {
       desc: 'Brain and Rover microcontrollers interfaced via high-speed hardware UART with isolated power regulation.',
       tag: 'CIRCUIT BENCH',
       badge: 'UART VERIFIED',
+      img: rover2,
     },
     {
       id: 'gal-4',
@@ -64,6 +73,7 @@ export const HackathonSection: React.FC = () => {
       desc: 'Real-time WebSocket interface displaying live field coordinates, laser ToF distance, and AMRI risk indexes.',
       tag: 'OPERATOR SOFTWARE',
       badge: 'LIVE TELEMETRY',
+      img: rover3,
     },
     {
       id: 'gal-5',
@@ -72,6 +82,7 @@ export const HackathonSection: React.FC = () => {
       desc: 'Demonstration of autonomous obstacle avoidance and simulated underleaf pest detection to the hardware track jury.',
       tag: 'JURY EVALUATION',
       badge: 'TOP 5 FINALIST',
+      img: team2,
     },
   ];
 
@@ -217,21 +228,27 @@ export const HackathonSection: React.FC = () => {
                 <div>
                   {/* Photo Blueprint Frame */}
                   <div className="w-full aspect-[16/10] bg-[#FAFBF9] rounded-md border border-slate-200/80 mb-4 flex flex-col items-center justify-center p-4 text-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-tech-grid opacity-30 pointer-events-none" />
-                    
-                    <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-500 mb-2">
-                      <ImageIcon className="w-5 h-5 text-emerald-700" />
-                    </div>
-                    
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block">
-                      ARCHIVE PHOTO PLACEHOLDER
-                    </span>
-                    <span className="text-xs font-mono font-semibold text-slate-800 mt-0.5">
-                      {item.title}
-                    </span>
-                    <span className="text-[9px] font-mono text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-xs border border-emerald-200 mt-2">
-                      {item.badge}
-                    </span>
+                    {item.img ? (
+                      <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-tech-grid opacity-30 pointer-events-none" />
+                        
+                        <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-500 mb-2">
+                          <ImageIcon className="w-5 h-5 text-emerald-700" />
+                        </div>
+                        
+                        <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block">
+                          ARCHIVE PHOTO PLACEHOLDER
+                        </span>
+                        <span className="text-xs font-mono font-semibold text-slate-800 mt-0.5">
+                          {item.title}
+                        </span>
+                        <span className="text-[9px] font-mono text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-xs border border-emerald-200 mt-2">
+                          {item.badge}
+                        </span>
+                      </>
+                    )}
                   </div>
 
                   <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
