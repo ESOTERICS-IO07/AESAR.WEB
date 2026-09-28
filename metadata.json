@@ -1,0 +1,6 @@
+{
+  "name": "AESAR — Autonomous Ecosystem Scouting & Analysis Rover",
+  "description": "An AI + IoT agricultural robotics platform combining autonomous exploration, field perception, environmental sensing, and ecosystem-level analysis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
